@@ -1,0 +1,516 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<script>
+/* Bantu foto: kalau foto-formal.jpg tidak ketemu, otomatis dicoba .jpeg / .png / .webp. JANGAN DIEDIT. */
+function cobaEkstensi(i){var e=['.jpg','.jpeg','.png','.webp','.JPG','.JPEG','.PNG'],n=+(i.dataset.n||0)+1;i.dataset.n=n;if(n<e.length){i.src=i.dataset.foto+e[n]}else{i.style.display='none'}}
+</script>
+<title>Portofolio Zahra Aulia</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Konsep: portofolio hitam-putih bergaris zebra; intro zebra menyeberang di zebra cross, aksen emas savana */
+:root{
+  color-scheme:dark;
+  --ink:#0e0e0f;--soft:#171718;--paper:#efe5cf;
+  --gold:#6ee05a;--amber:#15822a;
+  --silver:#b9b9b6;--muted:#9a9a97;--line:rgba(255,255,255,.16);
+  --display:"Barlow Condensed",Impact,sans-serif;--body:"DM Sans","Segoe UI",sans-serif;
+  --content:1200px;
+  --gl:max(20px,env(safe-area-inset-left,0px));--gr:max(20px,env(safe-area-inset-right,0px));
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--body);line-height:1.7;overflow-x:hidden}
+body:has(#intro-screen:not(.is-gone)){overflow:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:3000;background:var(--ink)}
+a{color:inherit}button{font:inherit}::selection{background:var(--gold);color:var(--ink)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;margin:0 0 8px;color:var(--gold);font-size:.98rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
+.eyebrow::before{width:22px;height:2px;background:currentColor;content:""}
+
+/* ---------- Intro ---------- */
+.start-screen{position:fixed;z-index:2000;inset:0;display:grid;grid-template-rows:auto 1fr auto;min-height:100svh;overflow:hidden;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  background:var(--ink);
+  transition:opacity .65s ease,visibility .65s ease}
+.start-screen.is-gone{opacity:0;visibility:hidden;pointer-events:none}
+html{--blades:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='70' viewBox='0 0 160 70'%3E%3Cg fill='%231f5a22'%3E%3Cpath d='M6 70Q10 38 2 12Q16 36 18 70Z'/%3E%3Cpath d='M44 70Q46 30 40 6Q54 34 56 70Z'/%3E%3Cpath d='M86 70Q90 40 84 16Q98 38 100 70Z'/%3E%3Cpath d='M124 70Q128 34 120 8Q136 34 138 70Z'/%3E%3C/g%3E%3Cg fill='%233f9a35'%3E%3Cpath d='M22 70Q26 46 20 24Q32 44 34 70Z'/%3E%3Cpath d='M62 70Q66 42 60 18Q72 42 74 70Z'/%3E%3Cpath d='M104 70Q108 48 102 26Q114 46 116 70Z'/%3E%3Cpath d='M142 70Q146 44 140 20Q154 44 156 70Z'/%3E%3C/g%3E%3Cg fill='%2368b947'%3E%3Cpath d='M32 70Q35 54 31 40Q40 54 42 70Z'/%3E%3Cpath d='M74 70Q77 52 73 36Q82 52 84 70Z'/%3E%3Cpath d='M114 70Q117 54 113 42Q122 54 124 70Z'/%3E%3Cpath d='M152 70Q155 56 151 44Q158 56 160 70Z'/%3E%3C/g%3E%3C/svg%3E")}
+.start-top,.start-bottom,.start-center{position:relative;z-index:2}
+.fur-wrap,.grass{position:absolute;inset:0;transition:opacity .7s ease}
+.fur-wrap{z-index:0}
+.fur{display:block;width:100%;height:100%}
+.fur-wrap::after{position:absolute;inset:0;content:"";background:linear-gradient(180deg,rgba(14,14,15,.8),transparent 18%,transparent 82%,rgba(14,14,15,.8)),radial-gradient(ellipse 58% 50% at 50% 46%,rgba(14,14,15,.82) 0 55%,rgba(14,14,15,.4) 80%,rgba(14,14,15,0) 100%)}
+.start-center h1,.start-center .eyebrow,.start-copy{text-shadow:0 2px 16px rgba(0,0,0,.85)}
+.grass{z-index:0;opacity:0;background:linear-gradient(180deg,#0b200f 0%,#16401a 45%,#2c7329 100%)}
+.grass::after{position:absolute;right:0;bottom:0;left:0;height:34%;content:"";background:var(--blades) 0 100%/220px 96px repeat-x}
+.launching .fur-wrap{opacity:0}.launching .grass{opacity:1}
+.launching .grass::after{animation:grass-far .5s linear infinite}
+@keyframes grass-far{to{background-position:-220px 100%}}
+.track-grass{position:absolute;z-index:1;inset:0;opacity:0;transition:opacity .5s ease;background:var(--blades) 0 100%/160px 70px repeat-x,var(--blades) 40px 62%/110px 48px repeat-x,linear-gradient(180deg,#9a6a41,#7a502e 55%,#64401f)}
+.launching .track-grass{opacity:1;animation:grass-run .28s linear infinite}
+@keyframes grass-run{from{background-position:0 100%,40px 62%}to{background-position:-160px 100%,-70px 62%}}
+.start-top,.start-bottom{width:min(var(--content),100%);margin-inline:auto;padding-left:var(--gl);padding-right:var(--gr);display:flex;align-items:center;justify-content:space-between;gap:16px;color:var(--silver);font-size:.98rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.start-top{padding-top:28px}.start-bottom{padding-bottom:24px}
+.start-brand{color:var(--paper);font:800 1.3rem var(--display);letter-spacing:.08em}.start-brand span{color:var(--gold)}
+.start-center{align-self:center;padding:30px 0 24px;text-align:center}
+.start-lights{display:flex;justify-content:center;gap:8px;margin-bottom:18px}
+.start-lights span{width:8px;height:28px;background:#2a2a2c;transition:background .2s}
+.launching .start-lights span{animation:light-on .3s ease forwards}
+.launching .start-lights span:nth-child(2){animation-delay:.12s}.launching .start-lights span:nth-child(3){animation-delay:.24s}.launching .start-lights span:nth-child(4){animation-delay:.36s}.launching .start-lights span:nth-child(5){animation-delay:.48s}
+@keyframes light-on{to{background:var(--gold);box-shadow:0 0 16px rgba(110,224,90,.7)}}
+.start-center .eyebrow{padding-inline:var(--gl)}
+.start-center .eyebrow::after{width:22px;height:2px;background:currentColor;content:""}
+.start-center h1{margin:0;padding-inline:var(--gl);font:800 clamp(2.5rem,7vw,5.5rem)/.92 var(--display);text-transform:uppercase}
+.start-center h1 span{display:inline-block;margin-top:.04em;padding:0 .14em;background:var(--gold);color:var(--ink);text-shadow:none}
+.start-copy{margin:15px auto 0;max-width:520px;padding-inline:var(--gl);color:var(--silver);font-size:1.08rem}
+.track{position:relative;height:clamp(150px,24vh,210px);margin-top:26px;border-block:1px solid rgba(255,255,255,.2);background:linear-gradient(180deg,#232325,#151516 40%,#0e0e0f 75%,#232325);box-shadow:0 22px 65px rgba(0,0,0,.45);overflow:hidden}
+.track-lane{position:absolute;top:50%;left:0;width:100%;border-top:2px dashed rgba(255,255,255,.3);transform:translateY(-50%)}
+.track-cross{position:absolute;top:0;bottom:0;left:50%;width:min(46%,300px);background:repeating-linear-gradient(90deg,var(--paper) 0 14.2857%,transparent 14.2857% 28.5714%);opacity:.55;transform:translateX(-50%)}
+.track-start{position:absolute;z-index:1;top:50%;left:clamp(14px,5%,56px);padding:5px 0;border-block:2px solid rgba(239,229,207,.7);color:var(--paper);font:900 clamp(1rem,2.6vw,1.7rem)/1 var(--display);letter-spacing:.08em;text-transform:uppercase;opacity:.9;transform-origin:0 50%;transform:translateY(-50%) scaleX(1.8);transition:opacity .3s ease;pointer-events:none}
+.launching .track-start{opacity:0}
+.zebra-btn{position:absolute;z-index:2;top:50%;left:50%;width:clamp(170px,23vw,270px);padding:0;border:0;background:none;cursor:pointer;filter:drop-shadow(0 8px 10px rgba(0,0,0,.7));transform:translate(-50%,-50%);transition:filter .2s ease}
+.zebra-btn:hover,.zebra-btn:focus-visible{filter:drop-shadow(0 0 16px rgba(110,224,90,.65))}
+.zebra-btn svg{display:block;width:100%;height:auto;overflow:visible}
+.zebra-btn .leg.far{filter:brightness(.62)}
+.launching .zebra-btn{animation:zebra-run 1.7s .3s cubic-bezier(.6,0,.9,.5) forwards}
+@keyframes zebra-run{0%{transform:translate(-50%,-50%)}12%{transform:translate(-52%,-50%)}100%{transform:translate(115vw,-50%) scale(.85)}}
+.launching .zebra-btn svg{animation:bob .3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-6px)}}
+.launching .leg.a{animation:gallop-a .3s linear infinite}.launching .leg.b{animation:gallop-b .3s linear infinite}
+@keyframes gallop-a{0%,100%{transform:rotate(30deg)}50%{transform:rotate(-30deg)}}
+@keyframes gallop-b{0%,100%{transform:rotate(-30deg)}50%{transform:rotate(30deg)}}
+.start-actions{display:flex;justify-content:center;align-items:center;gap:22px;margin-top:26px}
+.start-button,.skip-button{min-height:48px;border:1px solid transparent;cursor:pointer;font-size:.95rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.start-button{display:inline-flex;align-items:center;gap:13px;padding:0 22px;background:var(--paper);color:var(--ink);box-shadow:5px 5px 0 var(--gold);transition:transform .2s ease}
+.start-button:hover{transform:translate(-2px,-2px)}
+.skip-button{padding:0 4px;background:transparent;color:var(--silver);text-decoration:underline;text-underline-offset:5px}.skip-button:hover{color:#fff}
+.start-bottom span:last-child{color:var(--paper)}
+
+/* ---------- Situs ---------- */
+#portfolio-site{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+body.site-ready #portfolio-site{opacity:1;transform:none}
+.site-nav{position:sticky;z-index:100;top:env(safe-area-inset-top,0px);display:flex;align-items:center;justify-content:space-between;min-height:72px;padding-left:max(var(--gl),calc((100% - var(--content))/2));padding-right:max(var(--gr),calc((100% - var(--content))/2));border-bottom:1px solid var(--line);background:rgba(14,14,15,.96);backdrop-filter:blur(14px)}
+.logo{position:relative;top:2px;color:#fff;font:800 1.4rem/.9 var(--display);letter-spacing:.04em;text-decoration:none}.logo span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:clamp(12px,2vw,27px);margin:0;padding:0;list-style:none}
+.nav-links a{position:relative;color:#b7b8bb;font-size:.96rem;font-weight:700;letter-spacing:.08em;text-decoration:none;text-transform:uppercase;transition:color .2s}
+.nav-links a::after{position:absolute;right:0;bottom:-8px;left:0;height:2px;background:var(--gold);content:"";transform:scaleX(0);transform-origin:left;transition:transform .2s}
+.nav-links a:hover,.nav-links a.is-active{color:#fff}.nav-links a:hover::after,.nav-links a.is-active::after{transform:scaleX(1)}
+.nav-cta{padding:10px 14px;border:1px solid rgba(255,255,255,.35);color:#fff!important}.nav-cta::after{display:none}
+.menu-toggle{display:none;width:42px;height:42px;border:1px solid var(--line);background:transparent;color:#fff;cursor:pointer}
+.menu-toggle span{display:block;width:18px;height:2px;margin:4px auto;background:currentColor}
+
+.stripe-band{height:22px;background:repeating-linear-gradient(115deg,var(--ink) 0 26px,var(--paper) 26px 52px)}
+
+.hero{position:relative;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(270px,.8fr);align-items:center;gap:74px;width:min(var(--content),100%);min-height:690px;margin-inline:auto;padding-block:92px 110px;padding-left:var(--gl);padding-right:var(--gr);isolation:isolate}
+.hero::before{position:absolute;z-index:-1;top:0;right:0;bottom:0;width:52%;background:repeating-linear-gradient(115deg,rgba(255,255,255,.05) 0 22px,transparent 22px 64px);content:"";mask-image:linear-gradient(90deg,transparent,#000 45%,transparent)}
+.hero-copy{min-width:0}
+.hero h1{max-width:700px;margin:18px 0 0;font:800 7.3rem/.8 var(--display);letter-spacing:-.02em;text-transform:uppercase}
+.hero h1 span{display:block;color:transparent;-webkit-text-stroke:2px var(--paper)}
+:root{--furS:900px}
+.fur-ready .hero h1{background:var(--fur-hero) 0 0/var(--furS) auto;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:2px var(--paper);paint-order:stroke fill}
+.fur-ready .hero h1 span{-webkit-text-stroke:inherit}
+@media(max-width:680px){:root{--furS:520px}}
+.hero-subtitle{max-width:510px;margin:24px 0 0;color:#c4c4c2;font-size:1.2rem}.hero-subtitle strong{color:#fff}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.button-link{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:0 18px;border:1px solid var(--paper);background:var(--paper);color:var(--ink);font-size:.98rem;font-weight:800;letter-spacing:.08em;text-decoration:none;text-transform:uppercase;transition:transform .2s,background .2s}
+.button-link:hover{transform:translateY(-3px);background:var(--gold);border-color:var(--gold)}
+.button-link.secondary{border-color:rgba(255,255,255,.35);background:transparent;color:var(--paper)}.button-link.secondary:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.hero-meta{display:flex;flex-wrap:wrap;gap:34px;margin-top:35px;padding-top:19px;border-top:1px solid var(--line)}
+.hero-meta div{display:grid;gap:1px}.hero-meta strong{color:#fff;font:700 1.25rem var(--display);text-transform:uppercase}
+.hero-meta span{color:var(--muted);font-size:.82rem;letter-spacing:.1em;text-transform:uppercase}
+.portrait-wrap{position:relative;justify-self:end;width:min(100%,350px);aspect-ratio:.72}
+.portrait-wrap::before{position:absolute;z-index:2;top:-12px;left:-12px;width:46px;height:46px;border-top:4px solid var(--gold);border-left:4px solid var(--gold);content:""}
+.portrait-inner{position:relative;width:100%;height:100%;overflow:hidden;background:repeating-linear-gradient(115deg,#1d1d1f 0 26px,#2c2c2f 26px 52px)}
+.portrait-inner::after{position:absolute;inset:0;display:grid;place-items:center;content:"";color:rgba(246,245,241,.9);font:900 7rem var(--display);letter-spacing:.04em;text-shadow:0 0 0 #000}
+.portrait-inner img{position:absolute;z-index:1;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%;transition:opacity .45s,transform .7s}
+.portrait-inner .portrait-mask{opacity:0}.portrait-wrap.is-mask .portrait-mask{opacity:1}.portrait-wrap.is-mask .portrait-main{opacity:0}
+.portrait-wrap:hover img{transform:scale(1.045)}
+.portrait-caption{position:absolute;z-index:3;right:0;bottom:0;left:0;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;background:rgba(14,14,15,.9);color:#fff;font-size:.92rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.portrait-caption button{border:0;border-bottom:1px solid var(--gold);padding:0 0 2px;background:none;color:#fff;cursor:pointer;font-size:.8rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.hero-number{position:absolute;z-index:-1;right:var(--gr);bottom:-40px;color:rgba(255,255,255,.04);font:900 10rem/.8 var(--display);pointer-events:none}
+
+.section{padding:104px var(--gr) 104px var(--gl)}
+.section-inner{width:min(var(--content),100%);margin-inline:auto}
+.section-light{--accent:var(--amber);background:var(--paper);color:#171719}
+.section-dark{--accent:var(--gold);background:var(--soft)}
+.section .eyebrow{color:var(--accent)}
+.section-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;margin-bottom:54px}
+.section-heading h2{margin:0;font:800 4.4rem/.92 var(--display);letter-spacing:-.01em;text-transform:uppercase}
+.section-heading>p{max-width:390px;margin:0;color:#6d6e70;font-size:1.08rem;line-height:1.65}
+.section-dark .section-heading>p{color:var(--muted)}
+.has-js .reveal{opacity:0;transform:translateY(24px);transition:opacity .65s,transform .65s}
+.has-js .reveal.is-visible,body.site-ready .hero .reveal{opacity:1;transform:none}
+
+.about-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:80px;align-items:start}
+.about-stamp{padding:16px 0;border-top:1px solid rgba(14,14,15,.3)}
+.about-stamp strong{display:block;font:900 8rem/.8 var(--display);background:var(--fur-hero,repeating-linear-gradient(115deg,#0e0e0f 0 14px,#efe5cf 14px 24px)) 0 0/420px auto;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:2px #0e0e0f}
+.about-stamp span{display:block;max-width:230px;margin-top:20px;font-size:.82rem;font-weight:800;letter-spacing:.16em;line-height:1.5;text-transform:uppercase}
+.about-copy{min-width:0}
+.about-copy .lead{max-width:550px;margin:0 0 19px;color:var(--accent);font:700 1.8rem/1.1 var(--display);text-transform:uppercase}
+.about-copy p{margin:0 0 15px;color:#55575a}.about-copy strong{color:var(--ink)}
+.about-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:32px;padding-top:16px;border-top:1px solid rgba(14,14,15,.3)}
+.about-fact span{display:block;color:#76787b;font-size:.8rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.about-fact strong{display:block;margin-top:5px;font:700 1.2rem/1.15 var(--display);text-transform:uppercase}
+
+.skills-layout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:46px}
+.skill-group{min-width:0;padding:25px 0;border-top:1px solid var(--line)}
+.skill-index{color:var(--accent);font:700 1.1rem var(--display);letter-spacing:.06em}
+.skill-group h3{margin:10px 0;font:700 1.65rem var(--display);text-transform:uppercase}
+.skill-group p{max-width:400px;margin:0;color:var(--muted);font-size:1.08rem}
+.skill-tags{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
+.skill-tags span{color:#e4e3df;font-size:1rem;font-weight:700}
+.skill-tags span+span::before{content:"/";margin-right:12px;color:var(--gold)}
+
+.project-feature{display:grid;grid-template-columns:.8fr 1.2fr}
+.project-visual{position:relative;display:grid;place-items:center;min-height:320px;overflow:hidden;background:repeating-linear-gradient(115deg,#0e0e0f 0 30px,#232325 30px 60px);color:var(--paper)}
+.project-mark{font:900 10rem/.8 var(--display)}
+.project-mark span{display:block;margin-top:14px;color:var(--gold);font:700 .9rem var(--body);letter-spacing:.18em;text-align:center}
+.project-content{display:flex;flex-direction:column;align-items:flex-start;min-width:0;padding:24px 0 24px 48px;color:var(--ink)}
+.project-content .eyebrow{margin-bottom:14px}
+.project-content h3{margin:0 0 12px;font:800 3.6rem/.9 var(--display);text-transform:uppercase}
+.project-content p{max-width:480px;margin:0 0 22px;color:#55575a}
+.project-content .button-link{margin-top:auto;background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.project-content .button-link:hover{background:var(--amber);border-color:var(--amber);color:#fff}
+.tech-list{display:flex;flex-wrap:wrap;gap:16px;margin:0 0 26px;padding:0;list-style:none}
+.tech-list li{color:#333;font-size:.94rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.tech-list li+li::before{content:"/";margin-right:16px;color:var(--amber)}
+
+.timeline{display:grid;max-width:1000px;margin-inline:auto}
+.timeline-entry{display:grid;grid-template-columns:280px minmax(0,1fr);align-items:baseline;gap:48px;padding:30px 0;border-top:1px solid rgba(255,255,255,.2)}
+.timeline-entry:last-child{border-bottom:1px solid rgba(255,255,255,.2)}
+.timeline-date{white-space:nowrap;color:var(--accent);font-size:.98rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.timeline-entry h3{margin:0;font:700 1.8rem/1 var(--display);text-transform:uppercase}
+.timeline-subtitle{margin:6px 0 12px;color:var(--silver);font-size:1.1rem;font-weight:700}
+.timeline-entry p{margin:0;color:#b6b7b8;font-size:1.12rem}
+
+.contact-band{position:relative;overflow:hidden;padding:88px var(--gr) 88px var(--gl);background:var(--paper);color:var(--ink)}
+.contact-band::after{position:absolute;inset:0;background:repeating-linear-gradient(115deg,rgba(14,14,15,.07) 0 34px,transparent 34px 96px);content:"";mask-image:linear-gradient(90deg,transparent 20%,#000);pointer-events:none}
+.contact-inner{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:32px;width:min(var(--content),100%);margin-inline:auto}
+.contact-band .eyebrow{color:var(--amber)}
+.contact-inner h2{margin:0;font:800 5.7rem/.9 var(--display);text-transform:uppercase}
+.contact-inner p{max-width:440px;margin:18px 0 0;color:#55575a}
+.contact-actions{display:grid;justify-items:start;gap:13px;min-width:0}
+.contact-email{font-size:clamp(1rem,2vw,1.35rem);font-weight:700;overflow-wrap:anywhere;text-decoration-thickness:1px;text-underline-offset:5px}
+.contact-socials{display:flex;flex-wrap:wrap;gap:14px}
+.contact-socials a{color:#3a3a3d;font-size:1rem;font-weight:800;letter-spacing:.08em;text-decoration:none;text-transform:uppercase}
+.contact-socials a:hover{color:var(--amber);text-decoration:underline;text-underline-offset:4px}
+footer{display:flex;align-items:center;justify-content:space-between;gap:20px;width:min(var(--content),100%);margin-inline:auto;padding:26px var(--gr) 26px var(--gl);color:#b5b6b8;font-size:1rem}
+footer strong{color:#fff;font-family:var(--display);font-size:1.3rem;letter-spacing:.08em;text-transform:uppercase}
+.back-top{color:#fff;font-size:.78rem;font-weight:700;text-decoration:none;text-transform:uppercase}
+
+@media(max-width:850px){
+  .hero{grid-template-columns:minmax(0,1fr) minmax(230px,.68fr);gap:38px;min-height:610px}.hero h1{font-size:5.5rem}
+  .about-grid{gap:42px}.project-content{padding-left:28px}.section-heading h2{font-size:3.7rem}
+}
+@media(max-width:680px){
+  html{scroll-padding-top:72px}
+  .site-nav{min-height:68px}.menu-toggle{display:block}
+  .nav-links{position:absolute;top:calc(100% + 1px);right:0;left:0;display:none;align-items:stretch;gap:0;padding:8px var(--gr) 18px var(--gl);border-bottom:1px solid var(--line);background:var(--ink)}
+  .nav-links.is-open{display:flex;flex-direction:column}
+  .nav-links li{border-top:1px solid var(--line)}.nav-links a{display:block;padding:13px 3px}.nav-links a::after{display:none}
+  .nav-cta{margin-top:9px;padding:10px 12px!important}
+  .hero{grid-template-columns:1fr;gap:42px;min-height:0;padding-block:76px 86px}.hero h1{font-size:5rem;line-height:.84}
+  .portrait-wrap{justify-self:center;width:min(70%,300px)}.hero-number{bottom:-20px;font-size:7rem}
+  .section{padding-block:76px}.section-heading{align-items:flex-start;flex-direction:column;gap:17px;margin-bottom:34px}.section-heading h2{font-size:3.2rem}
+  .about-grid{grid-template-columns:1fr;gap:30px}.about-stamp strong{font-size:6rem}.about-facts{grid-template-columns:1fr;gap:12px}
+  .skills-layout{grid-template-columns:1fr}.skill-group h3{font-size:1.45rem}
+  .project-feature{grid-template-columns:1fr}.project-visual{min-height:200px}.project-mark{font-size:7rem}.project-content{padding:26px 0 0}.project-content h3{font-size:3rem}
+  .timeline-entry{grid-template-columns:1fr;gap:9px;padding:22px 0}.timeline-entry h3{font-size:1.55rem}
+  .contact-band{padding-block:70px}.contact-inner{align-items:flex-start;flex-direction:column}.contact-inner h2{font-size:4rem}
+  footer{align-items:flex-start;flex-direction:column}
+  .start-top,.start-bottom{font-size:.74rem;letter-spacing:.06em}.start-top{padding-top:19px}.start-bottom{padding-bottom:17px}
+  .start-center h1{font-size:clamp(2.6rem,12vw,4.1rem)}.start-copy{font-size:.95rem}
+  .track-start{left:12px;font-size:.8rem;transform:translateY(-50%) scaleX(1.5)}
+  .track{height:150px;margin-top:23px}.zebra-btn{width:min(56vw,210px)}
+  .start-actions{gap:15px;margin-top:20px}.start-button,.skip-button{font-size:.84rem}.start-button{padding-inline:14px}
+}
+@media(max-width:380px){.start-bottom span:last-child{display:none}.hero h1{font-size:4.3rem}.contact-inner h2{font-size:3.35rem}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition-duration:.01ms!important}.has-js .reveal{opacity:1;transform:none}}
+
+.start-center .eyebrow{color:var(--paper)}
+.stripe-band{background:repeating-linear-gradient(115deg,var(--ink) 0 26px,var(--paper) 26px 52px)}
+.fur-ready .stripe-band{height:38px;background:var(--fur-hero) center/cover}
+.fur-ready .hero::before{background:var(--fur-hero) center/cover;opacity:.15}
+.fur-ready .portrait-inner{background:linear-gradient(rgba(14,14,15,.4),rgba(14,14,15,.4)),var(--fur-hero) center/cover}
+.portrait-inner::after{text-shadow:0 4px 28px rgba(0,0,0,.9)}
+.fur-ready .project-visual{background:linear-gradient(rgba(14,14,15,.55),rgba(14,14,15,.55)),var(--fur-hero) center/cover}
+.project-mark{text-shadow:0 4px 28px rgba(0,0,0,.85)}
+.fur-ready .contact-band::after{background:var(--fur-hero) center/cover;opacity:.13}
+
+.section-light .timeline-entry,.section-light .timeline-entry:last-child{border-color:rgba(14,14,15,.22)}
+.section-light .timeline-subtitle{color:#3a3a3d}
+.section-light .timeline-entry p{color:#505155}
+
+/* ---------- Kawanan zebra kecil ---------- */
+.mz{position:fixed;z-index:900;left:0;bottom:calc(env(safe-area-inset-bottom,0px) + 4px);pointer-events:none;will-change:transform}
+.mz .flip{transform-origin:50% 100%}
+.mz svg{display:block;width:100%;height:auto;overflow:visible}
+.mz.pet svg{pointer-events:auto;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.mz .leg.far{filter:brightness(.62)}
+.mz.run .leg.a{animation:gallop-a .3s linear infinite}.mz.run .leg.b{animation:gallop-b .3s linear infinite}
+.mz.run .zsvg{animation:bob .3s ease-in-out infinite}
+.mz .tail{animation:swish 2.4s ease-in-out infinite}
+@keyframes swish{50%{transform:rotate(10deg)}}
+.mz .head{transition:transform .6s ease}
+.mz.graze .head{transform:rotate(34deg)}
+.mz.jump .zsvg{animation:hop .65s ease-out}
+@keyframes hop{35%{transform:translateY(-38px) rotate(-6deg)}70%{transform:translateY(0) rotate(0)}85%{transform:translateY(-8px)}}
+.bubble{position:absolute;bottom:calc(100% + 2px);left:0;width:max-content;max-width:min(220px,72vw);padding:8px 11px;background:var(--paper);color:var(--ink);border:2px solid var(--ink);box-shadow:3px 3px 0 var(--gold);font:600 .86rem/1.35 var(--body);opacity:0;transform:translateY(6px);transition:opacity .2s,transform .2s;pointer-events:none}
+.bubble.show{opacity:1;transform:none}
+.track .mz{position:absolute;bottom:auto;z-index:2;transform:translateX(-220px)}
+.launching .track .mz{animation:herd-run var(--d) var(--dl) cubic-bezier(.4,0,.8,.6) both}
+@keyframes herd-run{from{transform:translateX(-220px)}to{transform:translateX(calc(100vw + 220px))}}
+.mz.herd{bottom:calc(env(safe-area-inset-bottom,0px) + var(--b));animation:herd-run var(--d) var(--dl) linear both}
+.pet-ground{position:fixed;z-index:899;left:0;right:0;bottom:0;height:calc(env(safe-area-inset-bottom,0px) + 30px);background:var(--blades) 0 100%/130px 56px repeat-x;opacity:0;transition:opacity .8s;pointer-events:none}
+body.pets-on .pet-ground{opacity:.95}
+
+
+.section-dark .project-content{color:var(--paper)}
+.section-dark .project-content p{color:#b6b7b8}
+.section-dark .tech-list li{color:#e4e3df}
+.section-dark .tech-list li+li::before{color:var(--gold)}
+.section-dark .project-content .button-link{background:var(--paper);border-color:var(--paper);color:var(--ink)}
+.section-dark .project-content .button-link:hover{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+
+/* ---------- Penutup: padang rumput dengan zebra berlari ---------- */
+.contact-band{background:linear-gradient(180deg,#26672a 0%,#1b5a1f 55%,#134417 100%);color:#fff;padding-bottom:230px}
+.contact-band::after{background:repeating-linear-gradient(115deg,rgba(255,255,255,.08) 0 34px,transparent 34px 96px);mask-image:linear-gradient(180deg,#000 50%,transparent 88%)}
+.fur-ready .contact-band::after{background:var(--fur-hero) center/cover;mix-blend-mode:screen;opacity:.09}
+.contact-band .eyebrow{color:#fff}
+.contact-band .contact-inner p{color:rgba(255,255,255,.88)}
+.contact-band .contact-socials a{color:#fff}
+.contact-band .contact-socials a:hover{color:var(--gold)}
+.savanna{position:absolute;z-index:1;left:0;right:0;bottom:0;height:190px;pointer-events:none;background:linear-gradient(180deg,transparent,rgba(6,34,10,.85))}
+.savanna::before,.savanna::after{content:"";position:absolute;left:0;right:0;bottom:0;background-repeat:repeat-x}
+.savanna::before{z-index:1;height:84px;background-image:var(--blades);background-size:200px 88px;background-position:0 100%;filter:brightness(.7)}
+.savanna::after{z-index:3;height:52px;background-image:var(--blades);background-size:130px 56px;background-position:60px 100%}
+.savanna .mz{position:absolute;z-index:2;bottom:var(--b);transform:translateX(var(--sx));animation:savanna-run var(--d) linear infinite;animation-delay:var(--dl)}
+@keyframes savanna-run{from{transform:translateX(-170px)}to{transform:translateX(calc(100vw + 10px))}}
+.savanna .mz.run .leg.a{animation-duration:.6s}.savanna .mz.run .leg.b{animation-duration:.6s}.savanna .mz.run .zsvg{animation-duration:.6s}
+.savanna:not(.in-view) *{animation-play-state:paused!important}
+
+.stripe-band,.fur-ready .stripe-band{height:44px}
+@media(max-width:680px){.stripe-band,.fur-ready .stripe-band{height:30px}}
+
+/* Layar laptop yang pendek: rapatkan tampilan awal supaya semuanya muat dan terasa di tengah */
+@media(max-height:780px) and (min-width:681px){
+  .start-top{padding-top:16px}.start-bottom{padding-bottom:14px}
+  .start-center{padding:6px 0}
+  .start-lights{margin-bottom:10px}.start-lights span{height:20px}
+  .start-center h1{font-size:clamp(2.2rem,5.2vw,4rem)}
+  .start-copy{margin-top:10px}
+  .track{height:clamp(130px,22vh,170px);margin-top:14px}
+  .zebra-btn{width:clamp(150px,min(23vw,32vh),270px)}
+  .start-actions{margin-top:14px}
+}
+.nav-links,.menu-toggle{margin-left:auto}
+footer{justify-content:flex-end}
+.project-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <pattern id="mst" width="15" height="15" patternUnits="userSpaceOnUse" patternTransform="rotate(-16)"><rect width="7" height="15" fill="#0e0e0f"/></pattern>
+  <pattern id="mlg" width="10" height="9" patternUnits="userSpaceOnUse"><rect width="10" height="4" fill="#0e0e0f"/></pattern>
+</defs></svg>
+<section class="start-screen" id="intro-screen" aria-label="Layar pembuka portofolio">
+  <div class="fur-wrap" aria-hidden="true"><canvas class="fur" id="fur"></canvas></div>
+  <div class="grass" aria-hidden="true"></div>
+  <div class="start-top"><div class="start-brand">SAVANA<span>.</span> PORTOFOLIO</div><div>Portofolio / 2026</div></div>
+  <div class="start-center">
+    <div class="start-lights" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+    <p class="eyebrow">Zebra cross di depan Anda</p>
+    <h1>Selamat datang<br>di <span>savana</span></h1>
+    <p class="start-copy">Tekan zebra untuk berlari bersama kawanannya dan masuk ke portofolio saya.</p>
+    <div class="track" aria-label="Zebra cross"><div class="track-cross" aria-hidden="true"></div><div class="track-start" aria-hidden="true">Start</div><div class="track-grass" aria-hidden="true"></div>
+      <button class="zebra-btn" id="zebra-launch" type="button" aria-label="Tekan untuk membuat zebra berlari dan masuk ke portofolio">
+        <svg viewBox="0 0 360 190" role="img" aria-label="Zebra bergaris hitam putih">
+          <defs>
+            <pattern id="st" width="15" height="15" patternUnits="userSpaceOnUse" patternTransform="rotate(-16)"><rect width="7" height="15" fill="#0e0e0f"/></pattern>
+            <pattern id="lg" width="10" height="9" patternUnits="userSpaceOnUse"><rect width="10" height="4" fill="#0e0e0f"/></pattern>
+            <g id="leg"><path d="M80 98 L104 98 L99 168 L88 168Z" fill="#efe5cf"/><path d="M80 98 L104 98 L99 168 L88 168Z" fill="url(#lg)"/><rect x="86" y="167" width="15" height="10" rx="2" fill="#0e0e0f"/></g>
+          </defs>
+          <ellipse cx="170" cy="182" rx="150" ry="6" fill="#000" opacity=".5"/>
+          <path d="M62 80 C40 84 32 112 40 138" fill="none" stroke="#0e0e0f" stroke-width="5" stroke-linecap="round"/><path d="M34 132 q6 -5 12 0 l-3 22 q-4 3 -7 0z" fill="#0e0e0f"/>
+          <use href="#leg" x="-22" class="leg far a" style="transform-origin:70px 100px"/>
+          <use href="#leg" x="98" class="leg far b" style="transform-origin:190px 100px"/>
+          <ellipse cx="148" cy="85" rx="88" ry="40" fill="#efe5cf" stroke="#3a3a3c" stroke-width="1.5"/><ellipse cx="148" cy="85" rx="88" ry="40" fill="url(#st)"/>
+          <path d="M198 62 L250 24 L292 54 L240 106Z" fill="#efe5cf"/><path d="M198 62 L250 24 L292 54 L240 106Z" fill="url(#st)"/>
+          <path d="M252 24 L278 16 L332 68 Q340 80 328 86 L302 90 Q282 82 264 60Z" fill="#efe5cf" stroke="#3a3a3c" stroke-width="1.5"/><path d="M252 24 L278 16 L332 68 Q340 80 328 86 L302 90 Q282 82 264 60Z" fill="url(#st)"/>
+          <path d="M314 70 L336 76 Q342 86 326 88 L302 90Z" fill="#0e0e0f"/>
+          <path d="M252 24 L200 60 L204 48 L248 12Z" fill="#0e0e0f"/><path d="M264 20 L266 1 L282 16Z" fill="#0e0e0f"/>
+          <circle cx="291" cy="50" r="3.2" fill="#6ee05a" stroke="#0e0e0f" stroke-width="1.5"/>
+          <use href="#leg" x="8" class="leg b" style="transform-origin:100px 100px"/>
+          <use href="#leg" x="123" class="leg a" style="transform-origin:215px 100px"/>
+        </svg>
+      </button>
+    </div>
+    <div class="start-actions"><button class="start-button" id="start-run" type="button"><span>Mulai berlari</span><span aria-hidden="true">&#8594;</span></button><button class="skip-button" id="skip-intro" type="button">Lewati</button></div>
+  </div>
+<div class="start-bottom"></div>
+</section>
+
+<div id="portfolio-site">
+<nav class="site-nav" aria-label="Navigasi utama"><a class="logo" href="#beranda" aria-label="Portofolio, beranda">Portofolio&#8217;s</a><button class="menu-toggle" id="menu-toggle" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span></button>
+    <ul class="nav-links" id="nav-links"><li><a href="#beranda">Beranda</a></li><li><a href="#keahlian">Keahlian</a></li><li><a href="#pendidikan">Pendidikan</a></li><li><a href="#proyek">Proyek</a></li><li><a class="nav-cta" href="#kontak">Kontak</a></li></ul></nav>
+  <main>
+<section class="hero" id="beranda">
+      <div class="hero-copy reveal"><p class="eyebrow">Junior Software Engineer</p><h1>Zahra <span>Aulia</span></h1>
+        <p class="hero-subtitle">Saya tertarik untuk menjadi software engineer, maka saya ingin terus mengembangkan skill untuk membuat sistem yang kreatif dan bermanfaat.</p>
+        <div class="hero-actions"><a class="button-link" href="#proyek">Lihat karya <span aria-hidden="true">&#8594;</span></a><a class="button-link secondary" href="mailto:aulzahra2202@gmail.com">Hubungi saya</a></div>
+      </div>
+      <div class="portrait-wrap reveal" id="portrait-wrap"><div class="portrait-inner">
+<!-- ✏️ ISI FOTO FORMAL (foto profil di Beranda)
+       Cara: simpan foto formalmu di folder yang SAMA dengan file ini, beri nama  foto-formal.jpg
+       (kalau sudah bernama itu, tidak ada yang perlu diganti). Mau pakai nama lain? Ganti tulisan foto-formal di bawah ini:
+       data-foto="foto-formal"  dan  src="foto-formal.jpg"  -> ganti dua-duanya dengan nama fotomu (tanpa/dengan .jpg) -->
+<img class="portrait-main" data-foto="foto-formal" src="foto-formal.jpg" alt="Foto profil Zahra Aulia" onerror="cobaEkstensi(this)">
+        <div class="portrait-caption"><span>ZAHRA AULIA</span></div></div></div>
+      <div class="hero-number" aria-hidden="true">01</div>
+    </section>
+    <div class="stripe-band" style="background-position:center 12%" aria-hidden="true"></div>
+<section class="section section-dark" id="keahlian"><div class="section-inner">
+      <div class="section-heading reveal"><div><p class="eyebrow">Kemampuan</p><h2>Keahlian</h2></div><p>Bidang yang terus saya pelajari dan kembangkan.</p></div>
+      <div class="skills-layout reveal">
+        <article class="skill-group"><span class="skill-index">01 / WEB</span><h3>Pemrograman web</h3><p>Membuat website yang kreatif.</p><div class="skill-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div></article>
+        <article class="skill-group"><span class="skill-index">02 / SISTEM</span><h3>Aplikasi &amp; sistem</h3><p>Menggunakan Windows untuk menjalani aktivitas dan menjelajahi internet.</p><div class="skill-tags"><span>Windows</span></div></article>
+        <article class="skill-group"><span class="skill-index">03 / PERANGKAT</span><h3>Perangkat lunak</h3><p>Perangkat lunak yang digunakan untuk membuat website yang menarik.</p><div class="skill-tags"><span>GitHub</span><span>VS Code</span></div></article>
+      </div></div></section>
+<section class="section section-light" id="pendidikan"><div class="section-inner">
+      <div class="section-heading reveal"><div><p class="eyebrow">Riwayat studi</p><h2>Pendidikan</h2></div><p>Pendidikan yang sedang dan telah saya tempuh.</p></div>
+      <div class="timeline reveal">
+        <article class="timeline-entry"><div class="timeline-date">2026 - Sekarang</div><div><h3>Universitas Mandiri</h3><p class="timeline-subtitle">Sistem Informasi</p></div></article>
+        <article class="timeline-entry"><div class="timeline-date">2022 - 2025</div><div><h3>SMA Negeri 1 Cibatu</h3><p class="timeline-subtitle">IPA</p></div></article>
+      </div></div></section>
+<section class="section section-dark" id="proyek"><div class="section-inner">
+      <div class="section-heading reveal"><div><p class="eyebrow">Karya / 01</p><h2>Proyek pilihan</h2></div><p>Proyek yang pernah saya kerjakan.</p></div>
+      <article class="project-feature reveal"><!-- ✏️ ISI FOTO KALKULATOR (foto di bagian Proyek)
+       Cara: simpan screenshot kalkulatormu di folder yang SAMA dengan file ini, beri nama  foto-kalkulator.jpg
+       Mau pakai nama lain? Ganti  data-foto="foto-kalkulator"  dan  src="foto-kalkulator.jpg"  di bawah ini -->
+<div class="project-visual"><img data-foto="foto-kalkulator" src="foto-kalkulator.jpg" alt="Tampilan proyek Kalkulator" onerror="cobaEkstensi(this)"></div>
+        <div class="project-content"><h3>Kalkulator</h3><p>Membuat sebuah kalkulator yang bisa dijalankan.</p>
+          <ul class="tech-list"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+          <a class="button-link" href="https://aulzahra2202-ops.github.io/TUGAS_KALKULATOR/" target="_blank" rel="noopener noreferrer">Lihat proyek <span aria-hidden="true">&#8599;</span></a></div></article>
+    </div></section>
+    <div class="stripe-band" style="background-position:center 88%" aria-hidden="true"></div>
+<section class="contact-band" id="kontak"><div class="contact-inner reveal">
+      <div><p class="eyebrow">Kontak</p><h2>Mari terhubung.</h2><p>Mari saling mengenal.</p></div>
+      <div class="contact-actions"><a class="contact-email" href="mailto:aulzahra2202@gmail.com">aulzahra2202@gmail.com</a>
+        <div class="contact-socials"><a href="https://www.instagram.com/zhraaullf_" target="_blank" rel="noopener noreferrer">Instagram @zhraaullf_</a></div></div>
+    </div>  <div class="savanna" aria-hidden="true"></div>
+    </section>
+  </main>
+<footer><a class="back-top" href="#beranda">Kembali ke atas &#8593;</a></footer>
+</div>
+<noscript><style>#portfolio-site{opacity:1!important;transform:none!important}#intro-screen{display:none!important}body{overflow:auto!important}</style></noscript>
+<script>
+document.body.classList.add('has-js');
+const intro=document.getElementById('intro-screen');
+/* Pola kulit zebra: garis tebal miring dengan tepi kasar seperti karpet */
+function paintFur(c,W,H,pitch,seed){
+  let s=seed;
+  const rnd=()=>{s|=0;s=s+0x6D2B79F5|0;let t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};
+  c.save();c.fillStyle='#efe5cf';c.fillRect(0,0,W,H);c.fillStyle='#0b0b0c';c.lineJoin='round';
+  const D=Math.hypot(W,H),step=pitch*.28;
+  c.translate(W/2,H/2);c.rotate(-24*Math.PI/180);
+  for(let o=-D/2-pitch*2;o<D/2+pitch*2;o+=pitch*(.8+rnd()*.45)){
+    const p2=rnd()*6.28,p3=rnd()*6.28,p4=rnd()*6.28,f=.7+rnd()*.6,L=[],R=[];
+    for(let y=-D/2-step;y<=D/2+step;y+=step){
+      const t=y/pitch;
+      const cx=o+Math.sin(t*.05+1.3)*pitch*2.2+Math.sin(t*.11+.4+o*.004)*pitch*.8+Math.sin(t*.23+p2)*pitch*.3;
+      let w=pitch*(.44+.2*Math.sin(t*.17*f+p3)+.1*Math.sin(t*.41+p4));
+      const br=Math.sin(t*.06*f+p2*1.7)+Math.sin(t*.13+p4);
+      if(br>1.6)w*=Math.max(0,1-(br-1.6)*3);
+      w=Math.max(.4,w);
+      L.push([cx-w/2+(rnd()-.5)*pitch*.1,y]);R.push([cx+w/2+(rnd()-.5)*pitch*.1,y]);
+    }
+    c.beginPath();L.forEach((p,i)=>i?c.lineTo(p[0],p[1]):c.moveTo(p[0],p[1]));
+    for(let i=R.length-1;i>=0;i--)c.lineTo(R[i][0],R[i][1]);
+    c.closePath();c.fill();
+  }
+  c.restore();
+}
+const fur=document.getElementById('fur');
+function drawFur(){
+  const dpr=Math.min(window.devicePixelRatio||1,2),W=fur.clientWidth,H=fur.clientHeight;
+  if(!W||!H)return;
+  fur.width=W*dpr;fur.height=H*dpr;
+  const c=fur.getContext('2d');c.setTransform(dpr,0,0,dpr,0,0);
+  paintFur(c,W,H,78*Math.max(.6,Math.min(1.25,W/1100)),11);
+}
+function makeHeroFur(){
+  const cv=document.createElement('canvas');cv.width=1800;cv.height=1040;
+  paintFur(cv.getContext('2d'),1800,1040,90,5);
+  document.documentElement.style.setProperty('--fur-hero','url('+cv.toDataURL('image/jpeg',.88)+')');
+  document.documentElement.classList.add('fur-ready');
+}
+try{makeHeroFur()}catch(e){}
+drawFur();
+let furTimer;window.addEventListener('resize',()=>{clearTimeout(furTimer);furTimer=setTimeout(drawFur,150)});
+
+/* Zebra kecil: kawanan di intro, lalu induk dan anak zebra yang ikut berlari saat halaman di-scroll */
+function zebraMarkup(){
+  const cream='#efe5cf',ink='#0e0e0f';
+  const leg=(dx,cls)=>{const d=`M${80+dx} 98L${104+dx} 98L${99+dx} 168L${88+dx} 168Z`;return `<g class="leg ${cls}" style="transform-origin:${92+dx}px 100px"><path d="${d}" fill="${cream}"/><path d="${d}" fill="url(#mlg)"/><rect x="${86+dx}" y="167" width="15" height="10" rx="2" fill="${ink}"/></g>`};
+  const neck='M198 62L250 24L292 54L240 106Z',head='M252 24L278 16L332 68Q340 80 328 86L302 90Q282 82 264 60Z';
+  return `<svg class="zsvg" viewBox="0 0 360 190" aria-hidden="true" focusable="false">
+  <ellipse cx="170" cy="182" rx="140" ry="5" fill="#000" opacity=".3"/>
+  <g class="tail" style="transform-origin:62px 80px"><path d="M62 80C40 84 32 112 40 138" fill="none" stroke="${ink}" stroke-width="5" stroke-linecap="round"/><path d="M34 132q6-5 12 0l-3 22q-4 3-7 0z" fill="${ink}"/></g>
+  ${leg(-22,'far a')}${leg(98,'far b')}
+  <ellipse cx="148" cy="85" rx="88" ry="40" fill="${cream}" stroke="#3a3a3c" stroke-width="1.5"/><ellipse cx="148" cy="85" rx="88" ry="40" fill="url(#mst)"/>
+  <g class="head" style="transform-origin:208px 78px">
+    <path d="${neck}" fill="${cream}"/><path d="${neck}" fill="url(#mst)"/>
+    <path d="${head}" fill="${cream}" stroke="#3a3a3c" stroke-width="1.5"/><path d="${head}" fill="url(#mst)"/>
+    <path d="M314 70L336 76Q342 86 326 88L302 90Z" fill="${ink}"/><path d="M252 24L200 60L204 48L248 12Z" fill="${ink}"/><path d="M264 20L266 1L282 16Z" fill="${ink}"/>
+    <circle cx="291" cy="50" r="3.2" fill="#6ee05a" stroke="${ink}" stroke-width="1.5"/>
+  </g>
+  ${leg(8,'b')}${leg(123,'a')}</svg>`;
+}
+function mkZebra(cls,w){
+  const el=document.createElement('div');
+  el.className='mz '+cls;el.style.width=w+'px';
+  el.innerHTML='<div class="bubble" role="status"></div><div class="flip">'+zebraMarkup()+'</div>';
+  return el;
+}
+(function(){
+  const track=document.querySelector('.track');
+  [[84,12,2.1,.5],[64,46,2.3,.7],[76,78,2.5,.55],[56,100,2.2,.9],[70,28,2.6,.8]].forEach(([w,top,d,dl])=>{
+    const m=mkZebra('run',w);m.style.top=top+'px';m.style.setProperty('--d',d+'s');m.style.setProperty('--dl',dl+'s');track.appendChild(m);
+  });
+})();
+(function(){
+  const sv=document.querySelector('.savanna');if(!sv)return;
+  const base=innerWidth<680?104:150;
+  [{k:1,sx:'6vw',b:16,dl:0},{k:.85,sx:'40vw',b:32,dl:-6},{k:1.05,sx:'72vw',b:10,dl:-12}].forEach(o=>{
+    const m=mkZebra('run',Math.round(base*o.k));
+    m.style.setProperty('--b',o.b+'px');m.style.setProperty('--sx',o.sx);m.style.setProperty('--d','18s');m.style.setProperty('--dl',o.dl+'s');
+    sv.appendChild(m);
+  });
+  new IntersectionObserver(es=>es.forEach(x=>sv.classList.toggle('in-view',x.isIntersecting))).observe(sv);
+})();
+let launchStarted=false;
+function enterPortfolio(skip=false){
+  if(launchStarted)return;launchStarted=true;
+  const finish=()=>{intro.classList.add('is-gone');document.body.classList.add('site-ready')};
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(skip||reduced){finish();return}
+  const zebra=document.getElementById('zebra-launch');
+  let done=false,fallback;
+  const end=()=>{if(done)return;done=true;clearTimeout(fallback);finish()};
+  zebra.addEventListener('animationend',e=>{if(e.target===zebra)end()});
+  intro.classList.add('launching');
+  fallback=setTimeout(end,2800);
+}
+document.getElementById('zebra-launch').addEventListener('click',()=>enterPortfolio());
+document.getElementById('start-run').addEventListener('click',()=>enterPortfolio());
+document.getElementById('skip-intro').addEventListener('click',()=>enterPortfolio(true));
+const menuToggle=document.getElementById('menu-toggle'),navLinks=document.getElementById('nav-links');
+menuToggle.addEventListener('click',()=>{const o=menuToggle.getAttribute('aria-expanded')==='true';menuToggle.setAttribute('aria-expanded',String(!o));menuToggle.setAttribute('aria-label',o?'Buka menu':'Tutup menu');navLinks.classList.toggle('is-open',!o)});
+navLinks.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{navLinks.classList.remove('is-open');menuToggle.setAttribute('aria-expanded','false');menuToggle.setAttribute('aria-label','Buka menu')}));
+const revealObserver=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');revealObserver.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
+const sectionObserver=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;document.querySelectorAll('.nav-links a[href^="#"]').forEach(l=>l.classList.toggle('is-active',l.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-28% 0px -62% 0px',threshold:0});
+document.querySelectorAll('main section[id]').forEach(s=>sectionObserver.observe(s));
+</script>
+
+</body></html>
